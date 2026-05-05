@@ -40,24 +40,12 @@ UPDATE res_users SET login = 'admin' WHERE id = 2;
 
 SSH into your server and run:
 ```
-cd /tmp
-sudo -u postgres pg_dump db_name > backup.sql
-```
-
-For compressed backup (recommended):
-```
-cd /tmp
-sudo -u postgres pg_dump db_name | gzip > backup.sql.gz
+sudo -u postgres pg_dump -Fc falcann > /root/falcann.dump
 ```
 
 2️⃣ Download Backup to Local Machine
 
 Run this command on your local system:
 ```
-scp root@your_server_ip:/tmp/backup.sql .
-```
-
-For compressed file:
-```
-scp root@your_server_ip:/tmp/backup.sql.gz .
+scp root@your_server_ip:/root/falcann.dump .
 ```
